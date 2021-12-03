@@ -30,7 +30,6 @@ def Part2():
             co2Bits = math.floor(sum([(int(x[i])) for x in co2]) / len(co2) + 0.5)
             co2 = [x for x in co2 if 1 - int(x[i]) == co2Bits]
 
-    print(oxy,co2)
     oxyDec = 0
     for i,x in enumerate(oxy[0][-2::-1]):
         oxyDec += 2 ** i * int(x)
