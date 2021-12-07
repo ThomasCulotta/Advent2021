@@ -4,8 +4,8 @@ touch $fname".py"
 touch $fname".txt"
 
 printf "filename = __file__.strip(\"py\") + \"txt\"
-file = open(filename, \"r\")
-data = file.readlines()
+with open(filename, \"r\") as file:
+    data = file.readlines()
 
 def Part1():
     return 0
