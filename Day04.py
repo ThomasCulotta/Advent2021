@@ -1,18 +1,18 @@
 filename = __file__.strip("py") + "txt"
-file = open(filename, "r")
-data = file.readlines()
+with open(filename, "r") as file:
+    data = file.readlines()
 
 import math
 
-nums = [int(x) for x in data[0].split(",")]
-boards = [[int(x) for y in data[i:i+5] for x in y.split()] for i in range(2, len(data), 6)]
+nums = [int(num) for num in data[0].split(",")]
+boards = [[int(num) for board in data[index:index+5] for num in board.split()] for index in range(2, len(data), 6)]
 
 def Part1():
     quickestTurn = len(nums) + 1
     quickestScore = 0
 
     for board in boards:
-        rows = [0 for i in range(5)]
+        rows = [0 for index in range(5)]
         cols = rows.copy()
         solvedBoard = board.copy()
 
@@ -35,7 +35,7 @@ def Part2():
     slowestScore = 0
 
     for board in boards:
-        rows = [0 for i in range(5)]
+        rows = [0 for index in range(5)]
         cols = rows.copy()
         solvedBoard = board.copy()
 

@@ -1,25 +1,25 @@
 filename = __file__.strip(".py") + ".txt"
-file = open(filename, "r")
-data = [((y := x.split(" "))[0][0], int(y[1])) for x in file.readlines()]
+with open(filename, "r") as file:
+    data = [((pair := instruction.split(" "))[0][0], int(pair[1])) for instruction in file.readlines()]
 
 def Part1():
-    forward = sum([x[1] for x in data if x[0] == "f"])
-    down    = sum([x[1] for x in data if x[0] == "d"])
-    up      = sum([x[1] for x in data if x[0] == "u"])
+    forward = sum([instruction[1] for instruction in data if instruction[0] == "f"])
+    down    = sum([instruction[1] for instruction in data if instruction[0] == "d"])
+    up      = sum([instruction[1] for instruction in data if instruction[0] == "u"])
 
     return forward * (down - up)
 
 def Part2():
-    forward = sum([x[1] for x in data if x[0] == "f"])
+    forward = sum([instruction[1] for instruction in data if instruction[0] == "f"])
     aim = depth = 0
 
-    for x, y in data:
-        if x == "f":
-            depth += y * aim
-        elif x == "d":
-            aim += y
+    for direction, distance in data:
+        if direction == "f":
+            depth += distance * aim
+        elif direction == "d":
+            aim += distance
         else:
-            aim -= y
+            aim -= distance
 
     return forward * depth
 

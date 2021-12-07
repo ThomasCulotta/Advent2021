@@ -1,20 +1,20 @@
 filename = __file__.strip(".py") + ".txt"
-file = open(filename, "r")
-data = list(map(int, file.readlines()))
+with open(filename, "r") as file:
+    data = list(map(int, file.readlines()))
 
 def Part1():
-    count1 = 0
-    for i in range(1, len(data)):
-        count1 += 1 if data[i] > data[i - 1] else 0
+    count = 0
+    for index in range(1, len(data)):
+        count += 1 if data[index] > data[index - 1] else 0
 
-    return count1
+    return count
 
 def Part2():
-    count2 = 0
-    for i in range(3, len(data)):
-        count2 += 1 if data[i] > data[i - 3] else 0
+    count = 0
+    for index in range(3, len(data)):
+        count += 1 if data[index] > data[index - 3] else 0
 
-    return count2
+    return count
 
 print(Part1())
 print(Part2())
