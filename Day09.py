@@ -32,15 +32,11 @@ def BasinSearch(x,y):
     return basinSize
 
 def Part2():
-    lowPoints = [(x,y) for y in range(len(heightMapEx)) for x in range(len(heightMapEx[y]))
-                 if (point := heightMapEx[y][x]) < heightMapEx[y - 1][x] and
-                    point < heightMapEx[y + 1][x] and
-                    point < heightMapEx[y][x - 1] and
-                    point < heightMapEx[y][x + 1]]
-
     basins = []
-    for lowPoint in lowPoints:
-        basins.append(BasinSearch(lowPoint[0], lowPoint[1]))
+    for y in range(len(heightMapEx)):
+        for x in range(len(heightMapEx[y])):
+            if heightMapEx[y][x] < 9:
+                basins.append(BasinSearch(x, y))
 
     max1 = max(basins)
     basins.remove(max1)
