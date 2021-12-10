@@ -35,17 +35,10 @@ def Part1():
 
 def Part2():
     scoreMap2 = {
-        ")" : 1,
-        "]" : 2,
-        "}" : 3,
-        ">" : 4
-    }
-
-    openToClose = {
-        "(" : ")",
-        "[" : "]",
-        "{" : "}",
-        "<" : ">"
+        "(" : 1,
+        "[" : 2,
+        "{" : 3,
+        "<" : 4
     }
 
     syntaxScores = []
@@ -64,7 +57,7 @@ def Part2():
         if len(stack) > 0:
             for bracket in stack[::-1]:
                 syntaxScore *= 5
-                syntaxScore += scoreMap2[openToClose[bracket]]
+                syntaxScore += scoreMap2[bracket]
 
             syntaxScores.append(syntaxScore)
 
