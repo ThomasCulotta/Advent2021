@@ -1,5 +1,15 @@
 fname="Day"$1
 
+if [ $fname = "Day" ]
+then
+    fname=`date +"%d"`
+    if [ $(date +"%H") -ge 20 ]
+    then
+        fname="$((fname+1))"
+    fi
+    fname="Day"$fname
+fi
+
 touch $fname".py"
 touch $fname".txt"
 
