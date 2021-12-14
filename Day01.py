@@ -1,4 +1,4 @@
-filename = __file__.strip(".py") + ".txt"
+filename = "Inputs/" + __file__.strip("py") + "txt"
 with open(filename, "r") as file:
     data = list(map(int, file.readlines()))
 

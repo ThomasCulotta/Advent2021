@@ -11,9 +11,9 @@ then
 fi
 
 touch $fname".py"
-touch $fname".txt"
+touch Inputs/$fname".txt"
 
-printf "filename = __file__.strip(\"py\") + \"txt\"
+printf "filename = \"Inputs/\" + __file__.strip(\"py\") + \"txt\"
 with open(filename, \"r\") as file:
     data = file.readlines()
 
