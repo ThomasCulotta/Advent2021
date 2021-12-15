@@ -15,14 +15,12 @@ def Part1():
         risk, x, y = heappop(searching)
 
         if (x, y) == (maxX - 1, maxY - 1):
-            print()
             return risk
 
         if (x, y) in visited:
             continue
 
         visited.add((x,y))
-        print(len(visited), end="\r", flush=True)
 
         offsets = [(-1, 0), (0, -1), (0, 1), (1, 0)]
         nextTiles = [(nextX,
@@ -44,5 +42,5 @@ def Part2():
     grid = gridEx
     return Part1()
 
-#print(Part1())
+print(Part1())
 print(Part2())
